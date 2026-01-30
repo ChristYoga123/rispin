@@ -7,18 +7,22 @@ Dokumentasi ini berisi panduan setup awal setelah clone repository dan alur kerj
 Jika anda baru saja melakukan `clone` dari repository, lakukan langkah-langkah berikut untuk mengaktifkan project di komputer lokal:
 
 ```bash
-# 1. Masuk ke folder project
-cd pak-tony
+# 1. Clone Repository (Belum ada project)
+# Ganti URL_REPOSITORY dengan link repository anda
+git clone https://github.com/natanetpro/rispin.git
 
-# 2. Install dependencies (penting!)
+# 2. Masuk ke folder project
+cd rispin
+
+# 3. Install dependencies (penting!)
 # Ini akan mengunduh semua library CodeIgniter 4 yang dibutuhkan
 composer install
 
-# 3. Setup file Environment
+# 4. Setup file Environment
 # Copy file 'env' menjadi '.env'
 cp env .env
 
-# 4. Konfigurasi .env (Opsional)
+# 5. Konfigurasi .env (Opsional)
 # Buka file .env dan sesuaikan database atau baseURL jika perlu:
 # database.default.hostname = localhost
 # database.default.database = nama_database
@@ -26,7 +30,7 @@ cp env .env
 # database.default.password =
 # CI_ENVIRONMENT = development
 
-# 5. Setup Database (Migrate & Seed)
+# 6. Setup Database (Migrate & Seed)
 # Jalankan migrasi untuk membuat tabel
 php spark migrate
 
