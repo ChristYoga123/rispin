@@ -1,4 +1,4 @@
-# Dokumentasi Proyek Pak Tony
+# Dokumentasi Proyek RISPIN
 
 Dokumentasi ini berisi panduan setup awal setelah clone repository dan alur kerja pengembangan (development workflow) yang disepakati.
 
@@ -220,3 +220,72 @@ php spark serve
 ```
 
 Akses: `http://localhost:8080/barang`
+
+---
+
+## 4. Panduan Push ke GitHub (Lengkap)
+
+Berikut adalah langkah-langkah detail untuk mengupload (push) perubahan kode anda ke repository GitHub:
+
+### A. Persiapan (Sebelum Push)
+
+Pastikan anda sudah berada di branch yang benar (biasanya `main` atau `master`).
+
+```bash
+git branch
+# Pastikan ada tanda bintang (*) di branch tujuan
+```
+
+### B. Langkah-langkah Push
+
+1.  **Cek Status Perubahan**
+    Lihat file mana saja yang telah diubah atau ditambah.
+
+    ```bash
+    git status
+    ```
+
+2.  **Tambahkan File ke Staging**
+    Pilih file yang ingin diupload.
+
+    ```bash
+    # Untuk menambahkan semua file yang berubah
+    git add .
+
+    # ATAU, untuk file tertentu saja
+    git add app/Controllers/HomeController.php
+    ```
+
+3.  **Simpan Perubahan (Commit)**
+    Berikan pesan yang jelas tentang apa yang anda ubah.
+
+    ```bash
+    git commit -m "Update fitur login dan fix bug layout"
+    ```
+
+4.  **Ambil Update Terbaru (Penting!)**
+    Sebelum push, biasakan pull dulu untuk menghindari konflik jika ada teman lain yang update.
+
+    ```bash
+    git pull origin main
+    ```
+
+5.  **Upload ke GitHub (Push)**
+    Kirim perubahan anda ke server.
+    ```bash
+    git push origin main
+    ```
+
+### C. Jika Terjadi Konflik (Merge Conflict)
+
+Jika saat `git pull` terjadi pesan CONFLICT:
+
+1.  Buka file yang konflik (biasanya ditandai dengan `<<<<<<< HEAD`).
+2.  Perbaiki manual kodingannya (pilih kode mana yang dipakai, hapus tanda `<<<<<<<`, `=======`, dan `>>>>>>>`).
+3.  Simpan file.
+4.  Jalankan perintah berikut untuk menyelesaikan:
+    ```bash
+    git add .
+    git commit -m "Fix merge conflict"
+    git push origin main
+    ```
